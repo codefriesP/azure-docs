@@ -89,12 +89,14 @@ These are the prerequisites for backing up virtual machines with MABS:
      1. To install the agent on each cluster node, run the following command:
      
         ```
-        Install DPMAgentInstaller.exe`
+        cd "installer folder"
+        .\DPMAgentInstaller_x64.exe
         ```
     
      2. After the installation is complete, run the following command to configure the agent on the node:
 
         ```
+        cd "c:\Program Files\Microsoft Data Protection Manager\DPM\bin"
         .\SetDpmServer.exe -dpmServerName winvm01
         ```
 
