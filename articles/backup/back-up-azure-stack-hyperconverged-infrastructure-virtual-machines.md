@@ -78,9 +78,9 @@ These are the prerequisites for backing up virtual machines with MABS:
 2. Set up the MABS protection agent on the server or each cluster node.
 
    >[!Note]
-   >If **Azure Benefits** is enabled on the Azure VM, disable the Firewall rule `AzsHci-ImdsAttestation-Block-TCP-In` to allow the **Agent WMI Queries**. To disable the Firewall, run the following cmdlet from PowerShell prompt on each node of the cluster:
+   >If **Azure Benefits** is enabled on the Azure VM, disable the Firewall rule `AzsHci-ImdsAttestation-Block-TCP-In` to allow the **Agent WMI Queries**. To disable the Firewall, run the following cmdlet from PowerShell prompt on any node of the cluster:
    >
-   >`Get-ClusterNode | % {$session = New-PsSession -ComputerName $_ ; Invoke-Command -Session $session -ScriptBlock {$env:COMPUTERNAME ; Disable-NetFirewallRule AzsHci-ImdsAttestation-Block-TCP-In }}`
+   > `Get-ClusterNode | % {$session = New-PsSession -ComputerName $_ ; Invoke-Command -Session $session -ScriptBlock {$env:COMPUTERNAME ; Enable-NetFirewallRule AzsHci-ImdsAttestation-Allow-In }}`
 
 3. To deploy the agent, choose one of the following methods:
 
